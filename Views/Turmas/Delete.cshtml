@@ -1,0 +1,17 @@
+﻿@using Caixai.Web2.Data
+
+@model Turma
+
+@{
+    ViewData["Title"] = "Delete Turma";
+}
+
+<h2 class="mb-4">Você tem certeza que deseja remover "@Model.Nome"?</h2>
+
+<form asp-action="DeleteConfirm" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <input type="submit" value="Sim" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-primary">Cancelar</a>
+    </div>
+</form>

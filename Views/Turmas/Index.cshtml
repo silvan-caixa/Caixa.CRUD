@@ -1,0 +1,27 @@
+﻿@using Caixai.Web2.Data
+@model IEnumerable<Turma>
+
+<a asp-controller="Turmas" asp-action="Create" class="btn btn-primary">Cadastrar Nova Turma</a>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Id)</th>
+        <th>@Html.DisplayNameFor(model => model.Nome)</th>
+        <th>@Html.DisplayNameFor(model => model.Professor)</th>
+        <th>Ações</th>
+    </tr>
+
+    @foreach(var turma in Model)
+    {
+        <tr>
+            <td>@turma.Id</td>
+            <td>@Html.DisplayFor(_ => turma.Nome)</td>
+            <td>@Html.DisplayFor(_ => turma.Professor)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@turma.Id" class="btn btn-info">Editar</a>
+                <a asp-action="Delete" asp-route-id="@turma.Id" class="btn btn-danger">Deletar</a>
+            </td>
+
+        </tr>
+    }
+</table>
